@@ -4,6 +4,7 @@
     padding: 20px 20px 20px 40px;
 }
 
+
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: #ffffff;
     font-size: 36pt;
@@ -11,15 +12,19 @@
 }
 
 .content {
+    font-family: 'Halant', cursive;
+    font-size: 18;
     margin-left: 40px;
 }
 
-h1, h2, h3, h4 {
-    font-family: 'Lobster', cursive;
-}
+h1, h2, h3, h4 {font-family: 'Special Elite', cursive;
+                display: table;
+                color: #000000;}
 
 .date {
     color: #828282;
+    margin-left: 5px;
+    size: 10px;
 }
 
 .save {
@@ -38,14 +43,93 @@ h1, h2, h3, h4 {
 }
 
 .post {
+    width: 130%;
     margin-bottom: 70px;
+    background-color: #efe8d5;
+    border-radius: 20px;
+    text-indent: 5px;
 }
 
 .post h1 a, .post h1 a:visited {
     color: #000000;
 }
 
-.comment {
-    margin: 20px 0px 20px 20px;
+.post-comment {
+    font-family: 'Special Elite', cursive;
+    margin-top:20px;
+    background-color: #e8ce71;
+    border-radius: 20px;
+    color: #000000;
+    margin-left: 2px;
+    text-indent: 5px;
 }
 
+.comment {
+    font-family: 'Special Elite', cursive;
+    margin-top:20px;
+    background-color: #e8ce71;
+    border-radius: 20px;
+    color: #000000;
+    margin-left: 2px;
+    text-indent: 5px;
+}
+
+hr { 
+  border-color:#7f7c72;
+  margin-top: 50px;
+  margin-bottom: 5px;
+} 
+
+a {
+    color: black;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: #800000;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #dbae4c;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
