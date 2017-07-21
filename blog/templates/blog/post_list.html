@@ -1,14 +1,17 @@
 {% extends 'blog/base.html' %}
+{% load filters %}
 
 {% block content %}
 {% for post in posts %}
     <div class="post">
         <div class="date">
-            <p>published: {{ post.published_date }}</p>
+            <p>published: {{ post.published_date|date:"M d, Y" }}</p>
         </div>
         <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-        <p>{{ post.text|linebreaksbr }}</p>
-        <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
+        <p>{{ post.text|render|safe }}</p>
+        <div class="post-comment">
+            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approved_comments.count }}</a>
+        </div>
     </div>
 {% endfor %}
 {% endblock %}
