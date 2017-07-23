@@ -17,6 +17,12 @@
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|render|safe }}</p>
     </div>
+    <div>
+        {% for tag in post.tags.all %}
+        <li class="tag"> <a href= "{% url 'posts_with_tag' tag=tag%}"> {{ tag }} </a></li>
+        {% endfor %}
+        <hr>
+    </div>
     <a class="button" href="{% url 'add_comment_to_post' pk=post.pk %}"><span>Add comment</span></a>
     <hr>
 {% for comment in post.comments.all %}
