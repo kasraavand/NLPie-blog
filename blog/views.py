@@ -5,6 +5,12 @@ from .models import Post, Comment
 from .forms import PostForm, CommentForm
 
 
+
+def posts_with_tag(request, tag):
+    posts = Post.objects.filter(tags=tag)
+    return render(request, 'blog/post_list.html', {'posts': posts})
+
+
 def post_list(request):
     posts = Post.objects.order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
