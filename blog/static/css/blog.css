@@ -54,6 +54,10 @@ h1, h2, h3, h4 {font-family: 'Special Elite', cursive;
     color: #000000;
 }
 
+.post h1 a:hover{
+    color: #800000;
+    text-decoration: none;
+}
 .post-comment {
     font-family: 'Special Elite', cursive;
     margin-top:20px;
