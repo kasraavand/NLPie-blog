@@ -1,11 +1,23 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.postgres.fields import ArrayField
 
+
+class Tag(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     text = models.TextField()
+    tags = models.ManyToManyField(Tag, related_name='posts')
+    tag_densities = ArrayField(
+        ArrayField(models.CharField(max_length=30),
+            size=2)
+        )
     created_date = models.DateTimeField(
             default=timezone.now)
     published_date = models.DateTimeField(
@@ -16,7 +28,7 @@ class Post(models.Model):
         self.save()
 
     def approved_comments(self):
-    	return self.comments.filter(approved_comment=True)
+        return self.comments.filter(approved_comment=True)
 
     def __str__(self):
         return self.title
