@@ -11,6 +11,7 @@
         <p>{{ post.text|render|safe }}</p>
         <div class="post-comment">
             <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approved_comments.count }}</a>
+            <p>Views: {{ post.view_count}}</p>
         </div>
     </div>
 {% endfor %}
