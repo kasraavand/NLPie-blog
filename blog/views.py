@@ -1,13 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from .models import Post, Comment
+from .models import Post, Comment, PostView
 from .forms import PostForm, CommentForm
 
 
 
 def posts_with_tag(request, tag):
-    posts = Post.objects.filter(tags=tag)
+    posts = Post.objects.filter(tags__name=tag)
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 
@@ -39,14 +39,28 @@ def post_edit(request, pk):
     if request.method == "POST":
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
+            post = form.save(request.user, commit=False)
+            # post.author = request.user
             post.published_date = timezone.now()
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+
+def record_view(request, post_id):
+
+    post = get_object_or_404(Post, pk=post_id)
+    if not PostView.objects.filter(post=post,
+                                   session=request.session.session_key):
+        view = PostView(post=post,
+                        ip=request.META['REMOTE_ADDR'],
+                        created=timezone.now(),
+                        session=request.session.session_key)
+        view.save()
+
+    # return HttpResponse(u"%s" % PostView.objects.filter(post=post).count())
 
 
 @login_required
@@ -79,6 +93,7 @@ def add_comment_to_post(request, pk):
     else:
         form = CommentForm()
     return render(request, 'blog/add_comment_to_post.html', {'form': form})
+
 
 @login_required
 def comment_approve(request, pk):
