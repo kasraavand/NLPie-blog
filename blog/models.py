@@ -9,6 +9,7 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
+
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
@@ -16,12 +17,11 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tag, related_name='posts')
     tag_densities = ArrayField(
         ArrayField(models.CharField(max_length=30),
-            size=2)
-        )
-    created_date = models.DateTimeField(
-            default=timezone.now)
-    published_date = models.DateTimeField(
-            blank=True, null=True)
+                   size=2)
+    )
+    created_date = models.DateTimeField(default=timezone.now)
+    published_date = models.DateTimeField(blank=True, null=True)
+    view_count = models.IntegerField(default=0, null=True)
 
     def publish(self):
         self.published_date = timezone.now()
@@ -50,7 +50,7 @@ class Comment(models.Model):
 
 
 class PostView(models.Model):
-    question = models.ForeignKey(Post, related_name='questionviews')
+    post = models.ForeignKey(Post, related_name='postviews')
     ip = models.CharField(max_length=40)
     session = models.CharField(max_length=40)
     created = models.DateTimeField(default=timezone.now)
