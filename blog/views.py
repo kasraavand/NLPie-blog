@@ -18,12 +18,18 @@ def post_list(request):
 
 def record_view(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
+
+    session_id = request.session.session_key
+    if not session_id:
+        request.session.save()
+    session_id = request.session.session_key
+
     if not PostView.objects.filter(post=post,
-                                   session=request.session.session_key):
+                                   session=session_id):
         view = PostView(post=post,
                         ip=request.META['REMOTE_ADDR'],
                         created=timezone.now(),
-                        session=request.session.session_key)
+                        session=session_id)
         view.save()
         Post.objects.filter(pk=post_id).update(view_count=F('view_count') + 1)
 
