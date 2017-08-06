@@ -15,7 +15,9 @@
 		     <a class="button" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
 		{% endif %}
         <h1>{{ post.title }}</h1>
-        <p>{{ post.text|render|safe }}</p>
+        <div class="content">
+            <p>{{ post.text|render|safe }}</p>
+        </div>
     </div>
     <div>
         {% for tag in post.tags.all %}
