@@ -5,11 +5,12 @@ import re
 
 class PostForm(forms.ModelForm):
     tags = forms.CharField(required=False, widget=forms.TextInput())
+
     class Meta:
         model = Post
         fields = ('title', 'text',)
         # widgets = {'tags': forms.TextInput()}
-    
+
     def save(self, author, commit=True):
         post_instance = super(PostForm, self).save(commit=commit)
         # for refusing of null constraint
@@ -17,7 +18,7 @@ class PostForm(forms.ModelForm):
         tags = self.cleaned_data.get('tags', None)
         if tags is not None:
             all_tag_names = re.findall(r'([\w-]+):(\d+)', tags)
-            # for refusing of null constraint 
+            # for refusing of null constraint
             post_instance.tag_densities = all_tag_names
             for t_name, density in all_tag_names:
                 try:
@@ -30,8 +31,8 @@ class PostForm(forms.ModelForm):
         post_instance.save()
         return post_instance
 
-class CommentForm(forms.ModelForm):
 
+class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ('author', 'text',)
+        fields = ('author', 'email', 'text',)
