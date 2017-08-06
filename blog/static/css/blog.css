@@ -17,7 +17,7 @@
 .content {
     font-family: 'Halant', cursive;
     font-size: 18;
-    margin-left: 40px;
+    margin-left: 10px;
 }
 
 h1, h2, h3, h4 {font-family: 'Special Elite', cursive;
@@ -103,6 +103,13 @@ a:visited {
 
 a:hover {
     color: #800000;
+}
+
+.read-more a{
+  color: blue;
+}
+.readmore a:hover{
+  color: #800000;
 }
 
 .tag {
