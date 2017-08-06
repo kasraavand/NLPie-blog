@@ -7,11 +7,16 @@
         <div class="date">
             <p>published: {{ post.published_date|date:"M d, Y" }}</p>
         </div>
+        <div class="content">
         <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-        <p>{{ post.text|render|safe }}</p>
+        <p>{{ post.text|render|safe|truncatewords:"130" }}</p>
+        </div>
+        <div class= "read-more">
+        <a href="{% url 'post_detail' pk=post.pk %}"> Read more</a>
+        </div>
         <div class="post-comment">
-            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approved_comments.count }}</a>
-            <p>Views: {{ post.view_count}}</p>
+            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approved_comments.count }}</a> ,  
+            Views: {{ post.view_count}}
         </div>
     </div>
 {% endfor %}
