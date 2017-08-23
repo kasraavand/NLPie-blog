@@ -6,7 +6,7 @@ import re
 
 @register.filter
 def render(content):
-    result = markdown(content, extras=["code-color"] ,safe_mode=False)
+    result = markdown(content, extras=["code-color"], safe_mode=False)
     return result
 
 
