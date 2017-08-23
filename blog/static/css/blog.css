@@ -127,7 +127,7 @@ a:hover {
 
 .button {
   display: inline-block;
-  border-radius: 4px;
+  border-radius: 2px;
   background-color: #dbae4c;
   border: none;
   color: #FFFFFF;
@@ -135,7 +135,6 @@ a:hover {
   padding: 10px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
 }
 
 .button span {
@@ -161,4 +160,102 @@ a:hover {
 .button:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.newsletter
+{
+    float: right;
+    width: 100%;
+    max-width: 26.25rem; /* 420 */
+    height: 3.75rem; /* 60 */
+    font-size: 1.25rem; /* 20 */
+    top: 50%;
+    left: 50%;
+    margin: -1.875rem 0 0 -13.125rem; /* 30 210 */
+}
+.newsletter input
+{
+  -webkit-transition: color .25s ease, background-color .25s ease, border-color .25s ease;
+  transition: color .25s ease, background-color .25s ease, border-color .25s ease;
+}
+.newsletter-email
+{
+  width: 100%;
+  height: 100%;
+  text-overflow: ellipsis;
+  color: #ffde00;
+  background-color: #63614c;
+  border: 2px solid transparent;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0 5rem 0 1.25rem; /* 80 20 */
+}
+.newsletter-email::-webkit-input-placeholder  { color: #a49c54 !important; }
+.newsletter-email:-moz-placeholder        { color: #a49c54 !important; }
+.newsletter-email::-moz-placeholder       { color: #a49c54 !important; }
+.newsletter-email:-ms-input-placeholder     { color: #a49c54 !important; }
+
+.newsletter-email:hover
+{
+  border-color: #494736;
+}
+.newsletter-email:focus
+{
+  color: #494736;
+  background-color: transparent;
+  border-color: #494736;
+}
+
+input.newsletter-submit
+{
+
+height: 6%;
+font-weight: 700;
+color: #ffde00;
+background-color: #494736;
+display: none;
+position: absolute;
+top: 0;
+right: 0;
+padding: 0 1.25rem; /* 20 */
+float: right; 
+-webkit-animation: appear-from-inside .25s ease, fade-in .25s linear;
+animation: appear-from-inside .25s ease, fade-in .25s linear;
+margin-top: 155px;
+-webkit-transform-origin: right center;
+-ms-transform-origin: right center;
+transform-origin: right center;
+}
+.newsletter-submit:hover,
+.newsletter-submit:focus
+{
+  color: #fff;
+}
+.newsletter--active .newsletter-submit
+{
+  display: block;
+}
+
+@-webkit-keyframes appear-from-inside
+{
+  from  { -webkit-transform: scale( 0 ); }
+  75%   { -webkit-transform: scale( 1.1 ); }
+  to    { -webkit-transform: scale( 1 ); }
+}
+@keyframes appear-from-inside
+{
+  from  { transform: scale( 0 ); }
+  75%   { transform: scale( 1.1 ); }
+  to    { transform: scale( 1 ); }
+}
+
+@media screen and ( max-width: 30em ) /* 480 */
+{
+  .newsletter
+  {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0;
+  }
 }
