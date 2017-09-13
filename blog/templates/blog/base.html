@@ -24,8 +24,8 @@
     </div>
     <form class="newsletter" autocomplete="off" novalidate>
         <label style="font-size: 20px;">Wanna stay updated?</label>
-        <input type="email" value="" placeholder="Enter your email address" tabindex="1" class="newsletter-email" />
-        <input type="submit" value="OK" tabindex="2" class="newsletter-submit" />
+        <input type="email" id="newsletter" placeholder="Enter your email address" tabindex="1" class="newsletter-email" />
+        <input type="submit" value="OK" tabindex="2" class="newsletter-submit" onclick="return subscribe()"/>
     </form>
     <div class="content container">
         <div class="row">
@@ -76,6 +76,27 @@
         }
     });
 })( window, document );
+
+function subscribe() {
+    alert("Thanks for subscription.");
+    var email = document.getElementById('newsletter').value;
+    $.ajax({
+        dataType: "json",
+        url : "subscribe/", // the endpoint
+        type : "POST", // http method
+        data : { 'email' : email}, // data sent with the post request
+
+        // handle a successful response
+        success : function(response) {
+            alert("Thanks for subscription.**");
+        },
+
+        // handle a non-successful response
+        error : function(xhr, errmsg, err) { 
+            console.log(xhr.status + ": " + xhr.responseText);
+    }
+});
+};
         </script>
 </body>
 </html>
