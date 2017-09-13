@@ -16,6 +16,12 @@ def post_list(request):
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 
+def subscribe(request):
+    print("****")
+    email = request.POST.get('email')
+    print(email)
+
+
 def record_view(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
 
