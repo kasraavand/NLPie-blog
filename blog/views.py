@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.db.models import F
+from django.http import HttpResponse, Http404
 from .models import Post, Comment, PostView
 from .forms import PostForm, CommentForm
 
@@ -17,9 +18,12 @@ def post_list(request):
 
 
 def subscribe(request):
+    if not request.is_ajax():
+        raise Http404
     print("****")
     email = request.POST.get('email')
     print(email)
+    return HttpResponse("{}", content_type="application/json")
 
 
 def record_view(request, post_id):
