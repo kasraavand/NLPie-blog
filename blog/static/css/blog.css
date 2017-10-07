@@ -1,11 +1,13 @@
 .page-header {
     background-color: #800000;
     margin-top: 0;
-    padding: 20px 20px 20px 40px;
+    padding: 80px 20px 20px 40px;
 }
 
 .page-header img{
-    padding: 20px 20px 20px 40px;
+    padding: 0px 20px 20px 0px;
+    margin: -70px 0px 0px -30px;
+    float: left;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
@@ -51,6 +53,7 @@ h1, h2, h3, h4 {font-family: 'Special Elite', cursive;
     background-color: #efe8d5;
     border-radius: 20px;
     text-indent: 5px;
+    color: #000000;
 }
 
 .post h1 a, .post h1 a:visited {
@@ -62,9 +65,8 @@ h1, h2, h3, h4 {font-family: 'Special Elite', cursive;
     text-decoration: none;
 }
 .post-comment {
-    font-family: 'Special Elite', cursive;
     margin-top:20px;
-    background-color: #e8ce71;
+    background-color: #dbd4c3;
     border-radius: 20px;
     color: #000000;
     margin-left: 2px;
@@ -73,10 +75,9 @@ h1, h2, h3, h4 {font-family: 'Special Elite', cursive;
 }
 
 .comment {
-    font-family: 'Special Elite', cursive;
     margin-top:20px;
-    background-color: #e8ce71;
-    border-radius: 20px;
+    background-color: #d8c48c;
+    border-radius: 10px;
     color: #000000;
     margin-left: 2px;
     text-indent: 5px;
