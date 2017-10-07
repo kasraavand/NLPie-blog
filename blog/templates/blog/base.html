@@ -1,7 +1,7 @@
 {% load staticfiles %}
 <html>
     <head>
-        <title>NLPie blog</title>
+        <title>NLPie</title> 
         <script type="text/javascript" src="/static/js/blog.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -18,8 +18,7 @@
             <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
             <p class="top-menu">Hello MoJo <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
         {% endif %}
-        <h1><a href="/">NLPie Blog</a>
-        <!--<img src="static/img/logo.jpg" height="100" width="200" href="/">-->
+        <img src="static/img/logo.jpg" height="100" width="200" href="/">
     </div>
     <form class="newsletter" autocomplete="off" novalidate>
         <label style="font-size: 20px;">Wanna stay updated?</label>
