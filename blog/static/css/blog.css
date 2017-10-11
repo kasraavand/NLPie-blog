@@ -1,7 +1,7 @@
 .page-header {
     background-color: #800000;
     margin-top: 0;
-    padding: 80px 20px 20px 40px;
+    padding: 10px 20px 20px 40px;
 }
 
 .page-header img{
@@ -222,7 +222,7 @@ padding: 0 1.25rem; /* 20 */
 float: right; 
 -webkit-animation: appear-from-inside .25s ease, fade-in .25s linear;
 animation: appear-from-inside .25s ease, fade-in .25s linear;
-margin-top: 155px;
+margin-top: 145px;
 -webkit-transform-origin: right center;
 -ms-transform-origin: right center;
 transform-origin: right center;
