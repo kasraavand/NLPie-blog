@@ -55,3 +55,8 @@ class PostView(models.Model):
     ip = models.CharField(max_length=40)
     session = models.CharField(max_length=40)
     created = models.DateTimeField(default=timezone.now)
+
+
+class Subscribers(models.Model):
+    email = models.EmailField(null=True)
+    subscribe_date = models.DateTimeField(blank=True, null=True)
