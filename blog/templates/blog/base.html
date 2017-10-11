@@ -9,6 +9,7 @@
         <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Halant" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/vs.css' %}">
     </head>
 <body>
@@ -19,7 +20,7 @@
             <p class="top-menu">Hello MoJo <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
         {% endif %}
         <!--<img src="static/img/logo.jpg" height="100" width="200" href="/">-->
-        <h1><a href="/"> NL<b>P</b>ie </a></h1> <img src="static/img/1f967.png" height="100" width="200" href="/">
+        <h1><a href="/"> NL<b>P</b>ie </a></h1> <img src="{% static 'img/1f967.png' %}" height="100" width="200" href="/">
     </div>
     <form class="newsletter" autocomplete="off" novalidate>
         <label style="font-size: 20px;font-family: 'Special Elite', cursive;">Wanna stay tuned?</label>
