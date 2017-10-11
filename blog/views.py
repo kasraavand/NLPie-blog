@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.db.models import F
 from django.http import HttpResponse, Http404
-from .models import Post, Comment, PostView
+from .models import Post, Comment, PostView, Subscribers
 from .forms import PostForm, CommentForm
 
 
@@ -20,9 +20,11 @@ def post_list(request):
 def subscribe(request):
     if not request.is_ajax():
         raise Http404
-    print("****")
     email = request.POST.get('email')
-    print(email)
+    subscriber_model = Subscribers()
+    subscriber_model.email = email
+    subscriber_model.subscribe_date = timezone.now()
+    subscriber_model.save()
     return HttpResponse("{}", content_type="application/json")
 
 
@@ -119,6 +121,7 @@ def comment_approve(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.approve()
     return redirect('post_detail', pk=comment.post.pk)
+
 
 @login_required
 def comment_remove(request, pk):
