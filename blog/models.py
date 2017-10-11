@@ -60,3 +60,6 @@ class PostView(models.Model):
 class Subscribers(models.Model):
     email = models.EmailField(null=True)
     subscribe_date = models.DateTimeField(blank=True, null=True)
+
+    def __str__(self):
+        return self.email.split('@')[0]
