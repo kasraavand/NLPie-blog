@@ -48,7 +48,7 @@ h1, h2, h3, h4 {font-family: 'Special Elite', cursive;
 }
 
 .post {
-    width: 130%;
+    width: 100%;
     margin-bottom: 20px;
     background-color: #efe8d5;
     border-radius: 20px;
@@ -165,13 +165,10 @@ a:hover {
 
 .newsletter
 {
-    float: right;
     width: 100%;
-    max-width: 26.25rem; /* 420 */
-    height: 3.75rem; /* 60 */
+    height: 37.5px; /* 60 */
     font-size: 1.25rem; /* 20 */
-    top: 50%;
-    left: 50%;
+    position: relative;
 }
 .newsletter input
 {
@@ -213,19 +210,17 @@ a:hover {
 input.newsletter-submit
 {
 
-height: 6%;
+height: 37.5px;
 font-weight: 700;
 color: #ffde00;
 background-color: #494736;
 display: none;
 position: absolute;
-top: 0;
+top: 100%;
 right: 0;
 padding: 0 1.25rem; /* 20 */
-float: right; 
 -webkit-animation: appear-from-inside .25s ease, fade-in .25s linear;
 animation: appear-from-inside .25s ease, fade-in .25s linear;
-margin-top: 165px;
 -webkit-transform-origin: right center;
 -ms-transform-origin: right center;
 transform-origin: right center;
