@@ -1,11 +1,13 @@
 {% load staticfiles %}
 <html>
     <head>
+        <script type="text/javascript" async
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
         <title>NLPie</title> 
         <script type="text/javascript" src="/static/js/blog.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
         <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Halant" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
@@ -21,19 +23,24 @@
             <p class="top-menu">Hello MoJo <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
         {% endif %}
         <!--<img src="static/img/logo.jpg" height="100" width="200" href="/">-->
-        <h1><a href="/"> NL<b>P</b>ie </a></h1> <img src="{% static 'img/1f967.png' %}" height="100" width="200" href="/">
+        <h1><a href="/"> NL<b>P</b>ie </a></h1>
+         <!-- <img src="{% static 'img/1f967.png' %}" height="100" width="200" /> -->
     </div>
-    <form class="newsletter" autocomplete="off" novalidate>
-        <label style="font-size: 20px;font-family: 'Special Elite', cursive;">Wanna stay tuned?</label>
-        <input type="email" id="newsletter" placeholder="Enter your email address" tabindex="1" class="newsletter-email" />
-        <input type="submit" value="OK" tabindex="2" class="newsletter-submit" onclick="return subscribe()"/>
-    </form>
-    <div class="content container">
+ <br>
+
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">
             {% block content %}
             {% endblock %}
             </div>
+            <div class="col-md-3">
+                <form class="newsletter" autocomplete="off" novalidate>
+                        <label style="font-size: 20px;font-family: 'Special Elite', cursive;">Wanna stay tuned?</label>
+                        <input type="email" id="newsletter" placeholder="Enter your email address" tabindex="1" class="newsletter-email" />
+                        <input type="submit" value="OK" tabindex="2" class="newsletter-submit" onclick="return subscribe()"/>
+                    </form>
+        </div>
         </div>
         </div>
         <script type="text/javascript">
