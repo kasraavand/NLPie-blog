@@ -12,17 +12,20 @@
         <link href="https://fonts.googleapis.com/css?family=Halant" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link rel="stylesheet" href="{% static 'css/octicons.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/vs.css' %}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 <body>
     <div class="page-header">
         {% if user.is_authenticated %}
-            <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
             <p class="top-menu">Hello MoJo <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
-        {% endif %}
-        <!--<img src="static/img/logo.jpg" height="100" width="200" href="/">-->
+            <a href= "{% url 'post_new' %}">
+                <img src="{% static 'img/png/glyphicons-191-plus-sign.png' %}" class= "octicons"></a>
+            <a href= "{% url 'post_draft_list' %}" >
+                <img src="{% static 'img/png/glyphicons-609-newspaper.png' %}" class= "octicons"></a>
+        {% endif %}         
+        <!--<img src="static/img/logo.jpg" height="100" width="200" href="{% url 'post_new' %}">-->
         <h1><a href="/"> NL<b>P</b>ie </a></h1>
          <!-- <img src="{% static 'img/1f967.png' %}" height="100" width="200" /> -->
     </div>
