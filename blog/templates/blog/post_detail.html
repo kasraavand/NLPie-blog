@@ -1,18 +1,21 @@
 {% extends 'blog/base.html' %}
 {% load filters %}
+{% load staticfiles %}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% block content %}
     <div class="post">
         {% if post.published_date %}
             <div class="date">
-                {{ post.published_date|date:"M d, Y" }}
+                {{ post.published_date|date:"M d, Y" }} by {{post.author}}
             </div>
         {% else %}
 		    <a class="button" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
         {% endif %}
         {% if user.is_authenticated %}
-		     <a class="button" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-		     <a class="button" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+		     <a class="button" href="{% url 'post_edit' pk=post.pk %}">
+                <img src="{% static 'img/svg/pencil.svg' %}"></a>
+		     <a class="button" href="{% url 'post_remove' pk=post.pk %}">
+                <img src="{% static 'img/svg/x.svg' %}"></a>
 		{% endif %}
         <h1>{{ post.title }}</h1>
         <div class="content">
@@ -31,8 +34,10 @@
         <div class="date">
             {{ comment.created_date }}
             {% if not comment.approved_comment %}
-                <a class="button" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-                <a class="button" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+                <a class="button" href="{% url 'comment_remove' pk=comment.pk %}">
+                    <img src="{% static 'img/svg/x.svg' %}"></a>
+                <a class="button" href="{% url 'comment_approve' pk=comment.pk %}">
+                    <img src="{% static 'img/svg/check.svg' %}"></a>
             {% endif %}
         </div>
         <strong>{{ comment.author }}</strong>
