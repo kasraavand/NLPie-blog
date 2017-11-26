@@ -15,7 +15,7 @@
         <a href="{% url 'post_detail' pk=post.pk %}"> Read more</a>
         </div>
         <div class="post-comment">
-            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approved_comments.count }}</a> ,  
+            Comments: {{post.approved_comments.count }} ,  
             Views: {{ post.view_count}}
         </div>
     </div>
