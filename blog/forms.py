@@ -1,11 +1,15 @@
 from django import forms
 from .models import Post, Comment, Tag
+from froala_editor.widgets import FroalaEditor
 import re
 
 
 class PostForm(forms.ModelForm):
-    tags = forms.CharField(required=False, widget=forms.TextInput())
-
+    tags = forms.CharField(required=False)
+    docfile = forms.FileField(
+        label='Select a file',
+        required=False
+    )
     class Meta:
         model = Post
         fields = ('title', 'text',)
@@ -16,6 +20,11 @@ class PostForm(forms.ModelForm):
         # for refusing of null constraint
         post_instance.author = author
         tags = self.cleaned_data.get('tags', None)
+        """
+        docfile = self.cleaned_data.get('docfile', None)
+        htx = nbconvert.HTMLExporter()
+        html = htx.from_filename(docfile)
+        """
         if tags is not None:
             all_tag_names = re.findall(r'([\w-]+):(\d+)', tags)
             # for refusing of null constraint
