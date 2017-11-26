@@ -1,7 +1,8 @@
 .page-header {
-    background-color: #800000;
+    background-color: #006d80;
     margin-top: 0;
-    padding: 10px 20px 20px 40px;
+    padding: 20px 20px 10px 40px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
 }
 
 .page-header img{
@@ -11,7 +12,7 @@
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: #ffffff;
+    color: #ffd904;
     font-size: 36pt;
     text-decoration: none;
 }
@@ -50,10 +51,11 @@ h1, h2, h3, h4 {font-family: 'Special Elite', cursive;
 .post {
     width: 100%;
     margin-bottom: 20px;
-    background-color: #efe8d5;
-    border-radius: 20px;
-    text-indent: 5px;
+    background-color: #fafafa;
+    box-shadow: 2px 5px 4px rgba(0, 0, 0, .5);
+    border-radius: 15px;
     color: #000000;
+    padding: 0px 10px 0px 10px;
 }
 
 .post h1 a, .post h1 a:visited {
@@ -66,9 +68,9 @@ h1, h2, h3, h4 {font-family: 'Special Elite', cursive;
 }
 .post-comment {
     margin-top:20px;
-    background-color: #dbd4c3;
+    background-color: #fbfaf6;
     border-radius: 20px;
-    color: #000000;
+    color: #707070;
     margin-left: 2px;
     margin-bottom: 50px;
     text-indent: 5px;
