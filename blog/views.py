@@ -11,12 +11,12 @@ import nbconvert
 
 def posts_with_tag(request, tag):
     posts = Post.objects.filter(tags__name=tag)
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    return render(request, 'blog/post_list.html', {'posts': posts, 'sub_scribe': True})
 
 
 def post_list(request):
     posts = Post.objects.order_by('published_date')
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    return render(request, 'blog/post_list.html', {'posts': posts, 'sub_scribe': True})
 
 
 def subscribe(request):
@@ -51,7 +51,7 @@ def record_view(request, post_id):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     record_view(request, pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+    return render(request, 'blog/post_detail.html', {'post': post, 'sub_scribe': False})
 
 
 @login_required
@@ -67,7 +67,6 @@ def post_new(request):
                 html = htx.from_file(data)
                 post.docfile = html[0]
             except:
-                raise
                 print("no docfile")
                 pass
             post.save()
@@ -92,7 +91,6 @@ def post_edit(request, pk):
                 html = htx.from_file(data)
                 post.docfile = html[0]
             except:
-                raise
                 print("no docfile")
                 pass
             post.save()
