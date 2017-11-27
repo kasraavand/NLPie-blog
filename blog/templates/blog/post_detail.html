@@ -18,9 +18,13 @@
                 <img src="{% static 'img/svg/x.svg' %}"></a>
 		{% endif %}
         <h1>{{ post.title }}</h1>
-        <div class="content">
-            <p>{{ post.text|render|safe }}</p>
-        </div>
+            {% if post.docfile %}
+                {{ post.docfile|safe }}
+            {% else %}
+                <div class="content">
+                    <p>{{ post.text|render|safe }}</p>
+                </div>        
+            {% endif %}
     </div>
     <div>
         {% for tag in post.tags.all %}

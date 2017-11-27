@@ -2,7 +2,6 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.postgres.fields import ArrayField
 
-
 class Tag(models.Model):
     name = models.CharField(max_length=30)
 
@@ -22,6 +21,7 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     view_count = models.IntegerField(default=0, null=True)
+    docfile = models.TextField(blank=True)
 
     def publish(self):
         self.published_date = timezone.now()

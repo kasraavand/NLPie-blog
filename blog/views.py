@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse
 from django.utils import timezone
 from django.db.models import F
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .models import Post, Comment, PostView, Subscribers
 from .forms import PostForm, CommentForm
+import nbconvert
 
 
 def posts_with_tag(request, tag):
@@ -59,6 +61,15 @@ def post_new(request):
         if form.is_valid():
             post = form.save(request.user, commit=False)
             post.published_date = timezone.now()
+            try:
+                data = request.FILES['docfile']
+                htx = nbconvert.HTMLExporter()
+                html = htx.from_file(data)
+                post.docfile = html[0]
+            except:
+                raise
+                print("no docfile")
+                pass
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
@@ -75,6 +86,15 @@ def post_edit(request, pk):
             post = form.save(request.user, commit=False)
             # post.author = request.user
             post.published_date = timezone.now()
+            try:
+                data = request.FILES['docfile']
+                htx = nbconvert.HTMLExporter()
+                html = htx.from_file(data)
+                post.docfile = html[0]
+            except:
+                raise
+                print("no docfile")
+                pass
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
