@@ -1,14 +1,19 @@
 .page-header {
     background-color: #006d80;
-    margin-top: 0 !important;
+    margin: 0px 0px 0px 0px !important;
     padding: 20px 20px 10px 40px !important;
     box-shadow: 1px 2px 4px rgba(0, 0, 0, .5) !important;
 }
 
 .page-header img{
-    padding: 0px 0px 0px 0px;
-    margin: 0px 10px 0px 20px;
+    padding: 0px 0px 0px 0px !important;
+    margin: 0px 10px 0px 20px !important;
     float: right;
+}
+
+.menu-bar {
+  float: right !important;
+  margin: -20px 0px 0px 0px;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
