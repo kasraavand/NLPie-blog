@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="{% static 'css/octicons.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/vs.css' %}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+        
     </head>
 <body>
     <div class="page-header">
@@ -27,7 +29,14 @@
         <!--<img src="static/img/logo.jpg" height="100" width="200" href="{% url 'post_new' %}">-->
         <h1><a href="/"> NL<b>P</b>ie </a></h1>
          <!-- <img src="{% static 'img/1f967.png' %}" height="100" width="200" /> -->
-    </div>
+         <div class="menu-bar">
+            <!-- Place this tag where you want the button to render. -->
+                <a class="github-button" href="https://github.com/kasramvd/NLPie-blog"
+                data-size="small"
+                data-show-count="true"
+                aria-label="Star NLPie on GitHub">Star</a>
+            </div>
+        </div>
  <br>
 
     <div class="container-fluid">
@@ -85,6 +94,36 @@
         }
     });
 })(window, document);
+
+function subscribe() {
+    var email = document.getElementById('newsletter').value;
+    var csrftoken = getCookie('csrftoken');
+    $.ajax({
+        dataType: "json",
+        url : "subscribe/", // the endpoint
+        type : "POST", // http method
+        data : { 'email' : email,
+                 'csrfmiddlewaretoken': csrftoken }, // data sent with the post request
+
+        // handle a successful response
+        success : function(response) {
+            alert("Thanks for subscription.");
+        },
+
+        // handle a non-successful response
+        error : function(xhr, errmsg, err) { 
+            console.log(xhr.status + ": " + xhr.responseText);
+    }
+});
+        $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+};
+
         </script>
 </body>
 </html>
